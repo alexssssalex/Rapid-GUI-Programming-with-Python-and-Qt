@@ -64,7 +64,7 @@ class Form2(QDialog):
 
 class ZeroSpinBox(QSpinBox):
     zeros = 0
-    # atzero = pyqtSignal(int)
+    atzero = pyqtSignal(int)
 
     def __init__(self, parent=None):
         super(ZeroSpinBox, self).__init__(parent)
@@ -76,7 +76,6 @@ class ZeroSpinBox(QSpinBox):
     def checkzero(self):
         if self.value() == 0:
             self.zeros += 1
-            self.atzero = pyqtSignal(int)
             self.atzero.emit(self.zeros)
             # self.emit(SIGNAL("atzero"), self.zeros)
 
