@@ -22,6 +22,7 @@ class Form(QDialog):
 
         dial = QDial()
         dial.setNotchesVisible(True)
+
         spinbox = QSpinBox()
 
         layout = QHBoxLayout()
@@ -161,6 +162,8 @@ elif sys.argv[1] == "3":
     form = Form3()
 elif sys.argv[1] == "4":
     form = Form4()
+elif sys.argv[1] == "5":
+    form = ZeroSpinBox()
 if form is not None:
     form.show()
     app.exec_()

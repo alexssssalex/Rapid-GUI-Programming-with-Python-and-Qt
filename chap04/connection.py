@@ -52,7 +52,7 @@ class Form(QDialog):
         button2.clicked.connect(self.button2callback)
         # self.connect(button2, SIGNAL("clicked()"),
         #              self.button2callback)
-        self.button3callback = lambda who="Three": self.anyButton(who)
+        self.button3callback = lambda : self.anyButton("Three")
         button3.clicked.connect(self.button3callback)
         # self.connect(button3, SIGNAL("clicked()"),
         #              self.button3callback)

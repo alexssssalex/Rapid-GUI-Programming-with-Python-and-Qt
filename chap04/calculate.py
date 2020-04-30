@@ -29,6 +29,7 @@ class Form(QDialog):
         layout.addWidget(self.lineedit)
         self.setLayout(layout)
         self.lineedit.setFocus()
+        # old style
         # self.connect(self.lineedit, SIGNAL("returnPressed()"),
         #              self.updateUi)
         self.lineedit.returnPressed.connect(self.updateUi)
@@ -46,6 +47,7 @@ class Form(QDialog):
 app = QApplication(sys.argv)
 form = Form()
 form.show()
-app.setQuitOnLastWindowClosed(False)
+# flag for close or nonclose app after hiding
+app.setQuitOnLastWindowClosed(True)
 app.exec_()
 
