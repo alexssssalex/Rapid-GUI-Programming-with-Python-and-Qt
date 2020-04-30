@@ -63,7 +63,7 @@ class NumberFormatDlg(QDialog):
         grid.addWidget(self.redNegativesCheckBox, 3, 0, 1, 2)
         grid.addWidget(buttonBox, 4, 0, 1, 2)
         self.setLayout(grid)
-        buttonBox.button(QDialogButtonBox.Apply).clicked.connect(self.reject)
+        buttonBox.button(QDialogButtonBox.Apply).clicked.connect(self.apply)
         # self.connect(buttonBox.button(QDialogButtonBox.Apply),
         #              SIGNAL("clicked()"), self.apply)
 
@@ -97,6 +97,6 @@ class NumberFormatDlg(QDialog):
                 self.decimalPlacesSpinBox.value())
         self.format["rednegatives"] = (
                 self.redNegativesCheckBox.isChecked())
-        self.changed.emit()
+        self.changed.emit(self)
         #         # self.emit(SIGNAL("changed"))
 

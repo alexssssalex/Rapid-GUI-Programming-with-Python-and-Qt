@@ -96,7 +96,7 @@ class Form(QDialog):
                 item = QTableWidgetItem(text)
                 item.setTextAlignment(Qt.AlignRight|Qt.AlignVCenter)
                 if sign and self.format["rednegatives"]:
-                    item.setBackgroundColor(Qt.red)
+                    item.setBackground(Qt.red)
                 self.table.setItem(y, x, item)
 
 

@@ -141,7 +141,6 @@ class Form(QDialog):
 
 
     def setPenProperties(self):
-        print('I am')
         dialog = PenPropertiesDlg(self)
 
         dialog.widthSpinBox.setValue(self.width)
