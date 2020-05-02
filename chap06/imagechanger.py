@@ -42,8 +42,7 @@ class MainWindow(QMainWindow):
 
         logDockWidget = QDockWidget("Log", self)
         logDockWidget.setObjectName("LogDockWidget")
-        logDockWidget.setAllowedAreas(Qt.LeftDockWidgetArea |
-                                      Qt.RightDockWidgetArea)
+        logDockWidget.setAllowedAreas(Qt.LeftDockWidgetArea | Qt.RightDockWidgetArea)
         self.listWidget = QListWidget()
         logDockWidget.setWidget(self.listWidget)
         self.addDockWidget(Qt.RightDockWidgetArea, logDockWidget)
@@ -181,21 +180,15 @@ class MainWindow(QMainWindow):
         # size = settings.value("MainWindow/Size",
         #                       QVariant(QSize(600, 500))).toSize()
         size = settings.value("MainWindow/Size", QSize(600, 500), type = QSize)
-
         self.resize(size)
         # position = settings.value("MainWindow/Position",
         #                           QVariant(QPoint(0, 0))).toPoint()
-
         position = settings.value("MainWindow/Position",QPoint(0, 0), type = QPoint)
         self.move(position)
-
         # self.restoreState(
         #     settings.value("MainWindow/State").toByteArray())
-
         self.restoreState(settings.value("MainWindow/State", QByteArray(), type = QByteArray))
-
         self.setWindowTitle("Image Changer")
-
         self.updateFileMenu()
         QTimer.singleShot(0, self.loadInitialFile)
 
@@ -290,7 +283,7 @@ class MainWindow(QMainWindow):
                 action = QAction(QIcon(":/icon.png"), "&%d %s" % (
                     i + 1, QFileInfo(fname).fileName()), self)
                 action.setData(QVariant(fname))
-                action.trigger.connect(self.loadFile)
+                action.triggered.connect(self.loadFile)
                 # self.connect(action, SIGNAL("triggered()"),
                 #              self.loadFile)
                 self.fileMenu.addAction(action)
@@ -321,7 +314,7 @@ class MainWindow(QMainWindow):
             return
         dir = os.path.dirname(self.filename) \
             if self.filename is not None else "."
-        formats = ["*.%s" % format.lower() \
+        formats = ["*.%s" % bytes(format).decode()\
                    for format in QImageReader.supportedImageFormats()]
         fname = QFileDialog.getOpenFileName(self,
                                                     "Image Changer - Choose Image", dir,
@@ -330,6 +323,7 @@ class MainWindow(QMainWindow):
         #                                             "Image Changer - Choose Image", dir,
         #                                             "Image files (%s)" % " ".join(formats)))
         if fname:
+            fname = fname[0]
             self.loadFile(fname)
 
     def loadFile(self, fname=None):
