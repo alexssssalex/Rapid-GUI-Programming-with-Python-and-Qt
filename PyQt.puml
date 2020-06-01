@@ -1,0 +1,38 @@
+@startmindmap
+* PyQt
+** Event
+*** spesific event handler
+****_ closeEvent()
+****_ keyPressEvent()
+****_ mousePressEvent()
+****_ mouseReleaseEvent()
+****_ paintEvent()
+****_ resizeEvent()
+*** event()
+****_ call before any specific
+***:installEventFilter()
+on QObject;
+***:installEventFilter()
+on QAplication;
+***:subclass QAplication
+and reimplement notify();
+** drag
+*** property
+****_ setScceptDrag()
+****_ setDragEnable()
+*** event
+****_ dragEnterEvent
+****_ dragMoveEvent
+****_ dropEvent
+****_ startDrag
+** Item-Based Graphics
+*** QGraphicsScene
+*** QGraphicsView
+*** QGraphicsItem
+****_ movable
+****_ selectable
+****_ focusable
+
+
+
+@endmindmap
